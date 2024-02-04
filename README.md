@@ -14,7 +14,7 @@ Bu basit web uygulaması, Express.js, Redis ve Sequelize (PostgreSQL ile entegre
 
 - Postgres Veritabanında `session-app` adında bir veritabanı oluşturun
 - Redis sunucunuzu başlatın
-- Kodu çalıştırın: `npm start` (Nodemon)
+
 
 ## Özelleştirme
 
