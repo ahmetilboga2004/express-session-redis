@@ -1,0 +1,58 @@
+<form id="registerForm">
+    <div>
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name">
+    </div>
+    <br>
+    <div>
+        <label for="username">Username: </label>
+        <input type="text" name="username" id="username">
+    </div>
+    <br>
+    <div>
+        <label for="password">Password: </label>
+        <input type="password" name="password" id="password">
+    </div>
+    <br>
+    <div>
+        <label for="role">Role: </label>
+        <select name="role" id="role">
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+            <option value="moderator">Moderator</option>
+        </select>
+    </div>
+    <br>
+    <div>
+        <button type="submit">Register</button>
+    </div>
+</form>
+<script>
+    const registerForm = document.querySelector("#registerForm")
+    registerForm.addEventListener("submit", async (event) => {
+        event.preventDefault()
+        let name = registerForm.name.value
+        let username = registerForm.username.value
+        let password = registerForm.password.value
+        let role = registerForm.role.value
+        try {
+            const response = await fetch("/auth/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ name, username, password, role })
+            })
+            const data = await response.json()
+            if (response.ok) {
+                console.log(data.name)
+                console.log(data.username)
+                console.log(data.role)
+            } else {
+                console.warn(data.error)
+            }
+        } catch (error) {
+            consol.error(error)
+        }
+    })
+</script>

@@ -1,0 +1,41 @@
+<form id="loginForm">
+    <div>
+        <label for="username">Username: </label>
+        <input type="text" name="username" id="username">
+    </div>
+    <br>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+    </div>
+    <br>
+    <div>
+        <button type="submit">Login</button>
+    </div>
+</form>
+<script>
+    const loginForm = document.querySelector("#loginForm")
+    loginForm.addEventListener("submit", async (event) => {
+        event.preventDefault()
+        let username = loginForm.username.value
+        let password = loginForm.password.value
+        try {
+            const response = await fetch("/auth/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ username, password })
+            })
+            const data = await response.json()
+            if (response.ok) {
+                console.log(data)
+                window.location.assign("/")
+            } else {
+                console.warn(data.error)
+            }
+        } catch (error) {
+            console.error(error)
+        }
+    })
+</script>

@@ -1,0 +1,9 @@
+<h1>WELCOME TO ADMIN PAGE</h1>
+<% if (user) { %>
+    <h3>
+        <%= user.username %>
+    </h3>
+    <% } %>
+        <a href="/auth/logout">Logout</a>
+        <br>
+        <a href="/auth/logout-all-devices">Logout All Devices</a>
