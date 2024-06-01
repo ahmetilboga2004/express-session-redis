@@ -32,7 +32,7 @@ Siz bunu istediğiniz gibi özelleştirebilirsiniz
 
 ### Güvenlik
 
-Güvenlik için `helmet` `joi` gibi modüller kullanabilirsiniz.
+Güvenlik için `helmet` gibi modüller kullanabilirsiniz.
 
 Ayrıca `SECRET_KEY` ve veritabanı ayarlarını da ortam değişkeni olarak kayıt edebilirsiniz.
 
