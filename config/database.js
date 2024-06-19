@@ -1,8 +1,7 @@
 import { Sequelize } from "sequelize";
-
-const sequelize = new Sequelize("session-app", "postgres", "123456", {
-  host: "localhost",
-  dialect: "postgres",
+const sequelize = new Sequelize("express-session-redis", "postgres", "123456", {
+    dialect: "postgres",
+    host: "localhost",
 });
 
 export default sequelize;
